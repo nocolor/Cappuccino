@@ -59,6 +59,12 @@ namespace qyt
     }
 
     void Sprite::visit(CommandQueue &_queue) {
+        if(!children_.empty()) {
+            for (int i = 0; i < children_.size(); ++i) {
+                children_[i]->visit(_queue);
+            }
+        }
+
         detail::rect rc;
         rc.origin_ = vec2(0.f, 0.f);
         rc.width_ = size_.width_;

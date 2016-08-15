@@ -144,8 +144,8 @@ namespace qyt
     bool Texture::init(const std::string &_filename)
     {
         unsigned char* image = loadPngFile(_filename.c_str(), &width_, &height_);
-        glGenTextures(1, &texture_id);
-        glBindTexture(GL_TEXTURE_2D, texture_id); // All upcoming GL_TEXTURE_2D operations now have effect on our texture object
+        glGenTextures(1, &texture_id_);
+        glBindTexture(GL_TEXTURE_2D, texture_id_); // All upcoming GL_TEXTURE_2D operations now have effect on our texture object
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width_, height_, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
         glGenerateMipmap(GL_TEXTURE_2D);
 
