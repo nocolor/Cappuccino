@@ -17,6 +17,14 @@ namespace qyt
         return ret;
     }
 
+    Texture::TexturePtr Texture::createForShared(const std::string &_filename)
+    {
+        TexturePtr ret = std::make_shared<Texture>();
+        if(ret->init(_filename))
+            return ret;
+        return nullptr;
+    }
+
     unsigned char* Texture::loadPngFile(const char *_filename, int *_width, int *_height)
     {
         unsigned char header[8];     //8

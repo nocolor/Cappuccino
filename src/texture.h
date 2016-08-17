@@ -66,17 +66,20 @@ namespace qyt
         bool updateData(const void* _data, int _offset_x, int _offset_y, int _width, int _height);
         glm::vec2 getTextureSizeInPixel() const;
 
+        typedef std::shared_ptr<Texture> TexturePtr;
+        static TexturePtr createForShared(const std::string& _filename);
 
+        GLuint getTextureId() const {return texture_id_;}
+        int getWidth() const { return width_;}
+        int getHeight() const { return height_;}
 
         //deprecated...
         NC_DEPRECATED static Texture* create(const std::string& _filename);
-        NC_DEPRECATED GLuint getTextureId() const {return texture_id_;}
-        NC_DEPRECATED int getWidth() const { return width_;}
-        NC_DEPRECATED int getHeight() const { return height_;}
-        ~Texture(){};
 
-    protected:
+        ~Texture(){};
         Texture(){};
+    protected:
+
         GLuint texture_id_;
         int width_, height_;
         GLfloat max_s_, max_t_;

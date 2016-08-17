@@ -19,4 +19,11 @@
     #define CC_DEPRECATED_ATTRIBUTE
 #endif
 
+#define NC_ASSERT(__cond__, __msg__) do {\
+        if(!__cond__){\
+            std::cerr << __msg__ << std::endl;\
+            assert(false);\
+        }\
+    }while(0)
+
 #endif //CAPPUCCINO_GLOBAL_DEFINE_H
